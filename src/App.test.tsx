@@ -1,15 +1,24 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
+import React from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
+import "./App.css";
+import { HomePage } from "./app/containers/HomePage";
 
-test('renders learn react link', () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
+const AppContainer = styled.div`
+  ${tw`
+    w-full
+    h-full
+    flex
+    flex-col
+  `};
+`;
+
+function App() {
+  return (
+    <AppContainer>
+      <HomePage />
+    </AppContainer>
   );
+}
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
-});
+export default App;
